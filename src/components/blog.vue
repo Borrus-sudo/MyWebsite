@@ -1,0 +1,107 @@
+<template>
+  <div>
+     <section v-if="loaded" class="blog">
+      <article v-html="blog.message"></article>
+      <span class="creds">
+        <!-- style="float:right;display: inline;margin-left: 5px;" -->
+        <button
+          v-show="!starred.includes(blog._id)"
+          @click="addStar(blog._id)"
+          class="blogButton"
+        >
+          <b> Star my post</b>
+        </button>
+        <button
+          v-show="starred.includes(blog._id)"
+          @click="removeStar(blog._id)"
+          class="blogButton"
+        >
+          <b> Unstar my post</b>
+        </button>
+        <h5 style="word-wrap: break-word; font-size: 15px; margin: 0px">
+          {{ blog.time }}
+        </h5>
+      </span>
+    </section>
+    <section v-else>Loading</section>
+  </div>
+</template>
+
+<script>
+import { bus } from "../main";
+export default {
+  data() {
+    return {
+      blog: {},
+      id: this.$route.params.id,
+      starred: [],
+      baseURL: "https://jdev.glitch.me/",
+      loaded: false,
+    };
+  },
+  methods: {
+    async addStar(id) {
+      this.starred.push(id.trim());
+      localStorage.setItem("starredPosts", this.starred.toString());
+      const response = await fetch(`${this.baseURL}post/addStar/${id.trim()}`);
+    },
+    async removeStar(id) {
+      this.starred.splice(this.starred.indexOf(id), 1);
+      localStorage.setItem("starredPosts", this.starred.toString());
+      const response = await fetch(
+        `${this.baseURL}post/removeStar/${id.trim()}`
+      );
+    },
+    callForBlog() {
+      console.log("called for blog");
+      bus.$emit("returnBlogs");
+      bus.$on("Blogs", (data) => {
+        this.blog = data.filter((elem) => elem._id === this.id);
+        this.blog = this.blog[0];
+        this.loaded = true;
+      });
+    }
+  },
+  activated(){
+    this.callForBlog();
+  }
+};
+</script>
+
+<style scoped>
+.blog {
+  border: 4px solid rgb(177, 78, 5);
+  border-radius: 7.5px;
+  margin-bottom: 30px;
+  max-width: 800px;
+  color: rgb(86, 18, 0) !important;
+  background-color: rgb(255, 255, 204);
+  font-size: larger;
+  text-align: left;
+  text-decoration: solid;
+  text-transform: none;
+  margin: 10px auto;
+  padding: 0px 20px;
+  padding-bottom: 5px;
+  word-wrap: break-word;
+}
+
+article > h1 {
+  color: rgb(102, 51, 0);
+  text-decoration: solid;
+  font-size: 10px;
+}
+
+.creds > h5 {
+  font-size: 3.1vw;
+  padding: none;
+  margin: none;
+  word-wrap: break-word;
+}
+.blogButton {
+  background-color: rgb(177, 78, 5);
+  color: black;
+  font-family: inherit;
+  text-align: center;
+}
+</style>
