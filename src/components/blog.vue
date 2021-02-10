@@ -39,6 +39,13 @@ export default {
       loaded: false,
     };
   },
+  created(){
+    bus.$on("Blogs", (data) => {
+      this.blog = data.filter((elem) => elem._id === this.id);
+      this.blog = this.blog[0];
+      this.loaded = true;
+    });
+  },
   methods: {
     async addStar(id) {
       this.starred.push(id.trim());
@@ -55,11 +62,6 @@ export default {
     callForBlog() {
       console.log("called for blog");
       bus.$emit("returnBlogs");
-      bus.$on("Blogs", (data) => {
-        this.blog = data.filter((elem) => elem._id === this.id);
-        this.blog = this.blog[0];
-        this.loaded = true;
-      });
     }
   },
   activated(){

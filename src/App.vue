@@ -20,18 +20,24 @@ export default {
     };
   },
   async created() {
-    const response = await fetch("https://jdev.glitch.me/post/getPost/");
-    const json = await response.json();
-    const message = await json;
-    this.blogs.push(...message);
-    this.blogs.sort((a, b) => {
-      return a.time.toUpperCase() >= b.time.toUpperCase() ? -1 : 1;
+    
+    bus.$on("fetchBlogs", () => {
+      fetchBlogs
     });
-    bus.$on("returnBlogs", () => {
-      bus.$emit("Blogs", this.blogs);
-    });
-    // console.log(this.blogs);
+
   },
+  methods:{
+    fetchBlogs(){
+      const response = await fetch("https://jdev.glitch.me/post/getPost/");
+      const json = await response.json();
+      const message = await json;
+      this.blogs.push(...message);
+      this.blogs.sort((a, b) => {
+        return a.time.toUpperCase() >= b.time.toUpperCase() ? -1 : 1;
+      });
+      bus.$emit("Blogs", this.blogs);
+    }
+  }
 };
 </script>
 
