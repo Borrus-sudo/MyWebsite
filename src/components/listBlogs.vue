@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ getBlogs() }}{{""}}
+    {{ getBlogs() }}
     <div v-if="loaded">
       <template v-for="blog in blogs">
         <section class="blog" :key="blog._id">
@@ -26,13 +26,16 @@ export default {
   },
   methods: {
     getBlogs() {
-      bus.$emit("returnBlogs");
-      bus.$on("Blogs", (data) => {
-        this.blogs = data;
-        this.loaded = true;
+      bus.$emit("fetchblogs", () => {
       });
     },
-  }
+  },
+  created() {
+    bus.$on("blogs", (data) => {
+      this.blogs = data;
+      this.loaded = true;
+      });
+  },
 };
 </script>
 

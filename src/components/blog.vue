@@ -1,6 +1,7 @@
 <template>
   <div>
-     <section v-if="loaded" class="blog">
+    {{ callForBlog() }}
+    <section v-if="loaded" class="blog">
       <article v-html="blog.message"></article>
       <span class="creds">
         <!-- style="float:right;display: inline;margin-left: 5px;" -->
@@ -43,28 +44,27 @@ export default {
     async addStar(id) {
       this.starred.push(id.trim());
       localStorage.setItem("starredPosts", this.starred.toString());
-      const response = await fetch(`${this.baseURL}post/addStar/${id.trim()}`);
+      await fetch(`${this.baseURL}post/addStar/${id.trim()}`);
     },
     async removeStar(id) {
       this.starred.splice(this.starred.indexOf(id), 1);
       localStorage.setItem("starredPosts", this.starred.toString());
-      const response = await fetch(
-        `${this.baseURL}post/removeStar/${id.trim()}`
-      );
+      await fetch(`${this.baseURL}post/removeStar/${id.trim()}`);
     },
     callForBlog() {
-      console.log("called for blog");
-      bus.$emit("returnBlogs");
-      bus.$on("Blogs", (data) => {
-        this.blog = data.filter((elem) => elem._id === this.id);
-        this.blog = this.blog[0];
-        this.loaded = true;
-      });
-    }
+      if (localStorage.hasOwnProperty("starredPosts")) {
+        this.starred = localStorage.getItem("starredPosts").split(",");
+      }
+      bus.$emit("fetchblogsp");
+    },
   },
-  activated(){
-    this.callForBlog();
-  }
+  created() {
+    bus.$on("blog", (data) => {
+      const blogs = data.filter((elem) => elem._id === this.id);
+      this.blog = blogs[0];
+      this.loaded = true;
+    });
+  },
 };
 </script>
 

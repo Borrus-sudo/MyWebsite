@@ -19,6 +19,16 @@ export default {
       blogs: [],
     };
   },
+  methods: {
+    giveBlogs() {
+      bus.$emit("blogs", this.blogs);
+    },
+  },
+  watch: {
+    blogs(val) {
+      bus.$emit("blogs", val);
+    },
+  },
   async created() {
     const response = await fetch("https://jdev.glitch.me/post/getPost/");
     const json = await response.json();
@@ -27,10 +37,12 @@ export default {
     this.blogs.sort((a, b) => {
       return a.time.toUpperCase() >= b.time.toUpperCase() ? -1 : 1;
     });
-    bus.$on("returnBlogs", () => {
-      bus.$emit("Blogs", this.blogs);
+    bus.$on("fetchblogs", () => {
+      bus.$emit("blogs", this.blogs);
     });
-    // console.log(this.blogs);
+    bus.$on("fetchblogsp", () => {
+      bus.$emit("blog", this.blogs);
+    });
   },
 };
 </script>
