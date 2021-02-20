@@ -42,11 +42,13 @@ export default {
   },
   methods: {
     async addStar(id) {
+      this.blog.stars++;
       this.starred.push(id.trim());
       localStorage.setItem("starredPosts", this.starred.toString());
       await fetch(`${this.baseURL}post/addStar/${id.trim()}`);
     },
     async removeStar(id) {
+      this.blog.stars--;
       this.starred.splice(this.starred.indexOf(id), 1);
       localStorage.setItem("starredPosts", this.starred.toString());
       await fetch(`${this.baseURL}post/removeStar/${id.trim()}`);

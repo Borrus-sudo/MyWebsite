@@ -1,10 +1,16 @@
-<template></template>
+<template>
+  <div></div>
+</template>
 
 <script>
 export default {
   name: "quickPolls",
+  data() {
+    return {};
+  },
+  methods: {},
 };
 </script>
 
-<style>
+<style scoped>
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div>
-    {{ getBlogs() }}
     <div v-if="loaded">
       <template v-for="blog in blogs">
         <section class="blog" :key="blog._id">
           <router-link :to="'post/' + blog._id">
+            <span class="additionals">⭐{{ blog.star }}</span>
             <article v-html="blog.message.slice(0, 100) + '(...)'"></article
           ></router-link>
         </section>
@@ -24,17 +24,18 @@ export default {
       loaded: false,
     };
   },
-  methods: {
-    getBlogs() {
-      bus.$emit("fetchblogs", () => {
-      });
-    },
-  },
-  created() {
-    bus.$on("blogs", (data) => {
-      this.blogs = data;
-      this.loaded = true;
-      });
+  async created() {
+    const response = await fetch("https://jdev.glitch.me/post/getPost/");
+    const json = await response.json();
+    const message = await json;
+    this.blogs.push(...message);
+    this.blogs.sort((a, b) => {
+      return a.time.toUpperCase() >= b.time.toUpperCase() ? -1 : 1;
+    });
+    this.loaded = true;
+    bus.$on("fetchblogsp", () => {
+      bus.$emit("blog", this.blogs);
+    });
   },
 };
 </script>
@@ -52,10 +53,16 @@ export default {
   text-decoration: solid;
   text-transform: none;
   margin: 10px auto;
-  padding: 20px;
+  padding: 30px;
   padding-bottom: 5px;
+  content: translateY(-5%);
 }
-
+.additionals {
+  margin: 0px;
+  margin-left: 98.5%;
+  padding: 0px;
+  text-align: right;
+}
 article > h1 {
   color: rgb(102, 51, 0);
   text-decoration: solid;
