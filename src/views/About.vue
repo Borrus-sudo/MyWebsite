@@ -6,8 +6,8 @@
         Hi I am Jinmay Jhaveri 14 year old junior full stack web dev (P.S. soon
         to be senior).I have created this blog to share my journey along with
         you'll.The articles published on this blog will be mostly about
-        technology covering a range of topic about the web.I will also share my
-        achievments,works and also my games.
+        technology covering a range of topics about the web.I will also share my
+        achievments,works and my games.
       </p>
     </section>
   </div>
