@@ -2,7 +2,7 @@
   <div id="app">
     <nav-bar />
     <h3 class="title">JDevBlog</h3>
-    <keep-alive include="listBlogs">
+    <keep-alive name="Home">
       <router-view />
     </keep-alive>
   </div>
