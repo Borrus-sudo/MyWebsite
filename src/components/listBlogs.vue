@@ -3,9 +3,12 @@
     <div v-if="loaded">
       <template v-for="blog in blogs">
         <section class="blog" :key="blog._id">
-          <router-link :to="'post/' + blog._id">
+          <router-link :to="'/post/' + blog._id">
             <span class="additionals">⭐{{ blog.star }}</span>
-            <article v-html="blog.message.slice(0, 100) + '(...)'"></article
+            <article
+              class="content"
+              v-html="blog.message.slice(0, 100) + '(...)'"
+            ></article
           ></router-link>
         </section>
       </template>
@@ -45,7 +48,8 @@ export default {
   border: 4px solid rgb(177, 78, 5);
   border-radius: 7.5px;
   margin-bottom: 30px;
-  max-width: 800px;
+  max-width: 650px;
+  max-height: 300px;
   color: rgb(86, 18, 0) !important;
   background-color: rgb(255, 255, 204);
   font-size: small;
@@ -56,17 +60,25 @@ export default {
   padding: 30px;
   padding-bottom: 5px;
   content: translateY(-5%);
+  display: grid;
 }
 .additionals {
+  display: inline;
   margin: 0px;
   margin-left: 98.5%;
   padding: 0px;
   text-align: right;
+  width: fit-content;
+}
+.content {
+  margin: 0px;
+  padding: 0px;
 }
 article > h1 {
   color: rgb(102, 51, 0);
   text-decoration: solid;
   font-size: 32px;
+  margin: 0px;
 }
 a,
 u {
