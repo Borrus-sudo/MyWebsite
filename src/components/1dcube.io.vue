@@ -1,10 +1,10 @@
 <template>
-  <div></div>
+  <div>Coming Soon</div>
 </template>
 
 <script>
 export default {
-  name: "quickPolls",
+  name: "1dcube.io",
   data() {
     return {};
   },

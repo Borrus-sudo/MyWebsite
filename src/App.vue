@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <nav-bar />
+    <br />
+    <br />
     <h3 class="title">JDevBlog</h3>
+
     <keep-alive name="Home">
       <router-view />
     </keep-alive>
@@ -26,11 +29,21 @@ export default {
   text-align: center;
 }
 .title {
-  text-align: center;
-  font-family: StardewValleyFont;
+  display: block;
   color: rgb(252, 183, 9);
-  font-size: 10vw;
-  margin-bottom: 10px;
-  margin-top: 20px;
+  font-family: TitleFont;
+  font-weight: 550;
+  font-size: 6rem;
+  letter-spacing: 1px;
+}
+@media screen and (max-width: 824px) {
+  .title {
+    transform: translateY(35%);
+  }
+}
+@media screen and (max-width: 280px) {
+  .title {
+    font-size: 4rem;
+  }
 }
 </style>

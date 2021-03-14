@@ -4,19 +4,14 @@
     <section v-if="loaded" class="blog">
       <article v-html="blog.message"></article>
       <span class="creds">
-        <!-- style="float:right;display: inline;margin-left: 5px;" -->
         <button
-          v-show="!starred.includes(blog._id)"
+          v-if="!starred.includes(blog._id)"
           @click="addStar(blog._id)"
           class="blogButton"
         >
           <b> Star my post</b>
         </button>
-        <button
-          v-show="starred.includes(blog._id)"
-          @click="removeStar(blog._id)"
-          class="blogButton"
-        >
+        <button v-else @click="removeStar(blog._id)" class="blogButton">
           <b> Unstar my post</b>
         </button>
         <h5 style="word-wrap: break-word; font-size: 15px; margin: 0px">
@@ -34,7 +29,6 @@ export default {
   data() {
     return {
       blog: {},
-      id: this.$route.params.id,
       starred: [],
       baseURL: "https://jdev.glitch.me/",
       loaded: false,
@@ -62,8 +56,10 @@ export default {
   },
   created() {
     bus.$on("blog", (data) => {
-      const blogs = data.filter((elem) => elem._id === this.id);
+      const blogs = data.filter((elem) => elem._id === this.$route.params.id);
+      // const ids = data.forEach((elem) => elem._id);
       this.blog = blogs[0];
+      // this.ids = ids;
       this.loaded = true;
     });
   },
@@ -75,9 +71,8 @@ export default {
   border: 4px solid rgb(177, 78, 5);
   border-radius: 7.5px;
   margin-bottom: 30px;
-  max-width: 800px;
-  color: rgb(86, 18, 0) !important;
-  background-color: rgb(255, 255, 204);
+  max-width: 700px;
+  background-color: rgb(255,255,204);
   font-size: larger;
   text-align: left;
   text-decoration: solid;
@@ -87,10 +82,7 @@ export default {
   padding-bottom: 5px;
   word-wrap: break-word;
 }
-
 article > h1 {
-  color: rgb(102, 51, 0);
-  text-decoration: solid;
   font-size: 10px;
 }
 

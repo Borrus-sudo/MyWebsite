@@ -17,8 +17,8 @@
   border: 4px solid rgb(177, 78, 5);
   border-radius: 7.5px;
   margin-bottom: 30px;
-  max-width: 800px;
-  color: rgb(86, 18, 0) !important;
+  max-width: 700px;
+  /* color: rgb(86, 18, 0) !important; */
   background-color: rgb(255, 255, 204);
   font-size: small;
   text-align: left;
