@@ -26,7 +26,7 @@ const routes = [{
         path: '/1dcube.io',
         name: 'Cube',
         component: () =>
-            import ('../components/1dcube.io.vue')
+            import ('../components/1dcubeio.vue')
     }, {
         path: '*',
         name: '404Page'

@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <nav-bar />
-    <br />
-    <br />
+    <app-navbar />
     <h3 class="title">JDevBlog</h3>
-
     <keep-alive name="Home">
       <router-view />
     </keep-alive>
+    <app-footer />
   </div>
 </template>
 
 <script>
 import navbar from "./components/navbar";
+import footer from "./components/footer";
 export default {
   name: "App",
   components: {
-    "nav-bar": navbar,
+    "app-navbar": navbar,
+    "app-footer":footer,
   },
 };
 </script>
@@ -27,6 +27,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  height: 100%;
 }
 .title {
   display: block;
@@ -35,6 +36,7 @@ export default {
   font-weight: 550;
   font-size: 6rem;
   letter-spacing: 1px;
+  z-index: -1;
 }
 @media screen and (max-width: 824px) {
   .title {

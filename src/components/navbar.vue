@@ -12,10 +12,14 @@
         JDevBlog
       </li>
       <li class="break"></li>
-      <li class="link"><router-link to="/" exact>Home</router-link></li>
-      <li class="link"><router-link to="/about" exact>About </router-link></li>
       <li class="link">
-        <router-link disable to="/1dcube.io">1dCube</router-link>
+        <router-link class="hrefs" to="/" exact>Home</router-link>
+      </li>
+      <li class="link">
+        <router-link class="hrefs" to="/about" exact>About </router-link>
+      </li>
+      <li class="link">
+        <router-link class="hrefs" disable to="/1dcube.io">1dCube</router-link>
       </li>
     </ul>
   </div>
@@ -32,7 +36,7 @@ export default {
   display: flex;
   background: rgb(68, 108, 169);
   width: 100%;
-  position: fixed;
+  position: relative;
   top: 0px;
   left: 0px;
   font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -53,19 +57,19 @@ export default {
   margin-left: 10px;
 }
 .left-part-2 {
-  margin-right: 55%;
+  margin-right: 58.5%;
   font-size: 2rem;
   margin-bottom: 0.9%;
 }
 .link {
   margin-top: 0.5%;
 }
-.link:hover {
-  font-size: 2rem;
+.hrefs:hover {
+  border-bottom: 2px solid white;
 }
 .favicon {
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
   margin: 0px 0px;
   padding: 0px;
   padding-top: 6px;
@@ -73,6 +77,13 @@ export default {
 }
 .break {
   height: 0px;
+}
+.search-box {
+  width: fit-content;
+  height: fit-content;
+  padding: 0px;
+  border: none;
+  margin: 0px;
 }
 .router-link-active {
   border-bottom: 2px solid white;
@@ -87,7 +98,18 @@ a {
   font-weight: 400;
   text-decoration: none;
 }
-@media screen and (max-width: 824px) {
+
+@media screen and (max-width: 890px) and (min-width: 835px) {
+  .left-part-2 {
+    margin-right: 56%;
+  }
+}
+@media screen and (max-width: 835px) and (min-width: 825px) {
+  .left-part-2 {
+    margin-right: 55.5%;
+  }
+}
+@media screen and (max-width: 825px) {
   .break {
     width: 100%;
   }

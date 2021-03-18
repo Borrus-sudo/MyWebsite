@@ -52,13 +52,13 @@ export default {
   border-radius: 7.5px;
   margin-bottom: 30px;
   max-width: 650px;
-  max-height: 150px;
+  max-height: 3% !important;
   background-color: rgb(255,255,204);
   font-size: small;
   text-align: left;
   text-decoration: solid;
   text-transform: none;
-  margin: 10px 7.5%;
+  margin: 10px auto;
   padding: 15px !important;
   padding-bottom: 0px !important;
   padding-top: 0px !important;
@@ -68,11 +68,12 @@ export default {
 .title {
   padding: 0px !important;
   margin: 0px !important;
+  
 }
 .additionals {
   display: inline;
   margin: 0px;
-  margin-left: 94%;
+  margin-left: 95%;
   padding: 0px;
 }
 

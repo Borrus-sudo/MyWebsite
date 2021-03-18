@@ -56,10 +56,10 @@ export default {
   },
   created() {
     bus.$on("blog", (data) => {
+      console.log(data);
       const blogs = data.filter((elem) => elem._id === this.$route.params.id);
-      // const ids = data.forEach((elem) => elem._id);
+      
       this.blog = blogs[0];
-      // this.ids = ids;
       this.loaded = true;
     });
   },
