@@ -11,7 +11,9 @@
             <article
               class="content"
               v-html="blog.message.split('</h5>')[0] + '(...)'"
-            ></article
+            ><br>
+             Author:Jinmay Jhaveri
+            </article
           ></router-link>
         </section>
       </template>
@@ -68,7 +70,6 @@ export default {
 .title {
   padding: 0px !important;
   margin: 0px !important;
-  
 }
 .additionals {
   display: inline;

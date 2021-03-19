@@ -1,5 +1,5 @@
 <template>
-  <div>Coming Soon</div>
+  <div class="cube">Coming Soon</div>
 </template>
 
 <script>
@@ -13,4 +13,7 @@ export default {
 </script>
 
 <style scoped>
+.cube{
+  min-height: 60%;
+}
 </style>

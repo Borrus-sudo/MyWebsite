@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-    <keep-alive include="listBlogs">
-      <list-blogs />
-    </keep-alive>
+    <list-blogs />
   </div>
 </template>
 

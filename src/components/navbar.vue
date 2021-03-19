@@ -40,7 +40,7 @@ export default {
   top: 0px;
   left: 0px;
   font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif !important;
+    "Helvetica Neue", Arial, sans-serif;
   height: 6.5%;
   height: fit-content;
   list-style-type: none;
@@ -78,13 +78,6 @@ export default {
 .break {
   height: 0px;
 }
-.search-box {
-  width: fit-content;
-  height: fit-content;
-  padding: 0px;
-  border: none;
-  margin: 0px;
-}
 .router-link-active {
   border-bottom: 2px solid white;
 }
@@ -118,7 +111,7 @@ a {
   }
   #nav {
     justify-content: center;
-    font-size: 0.5rem !important;
+    font-size: 0.5rem;
   }
 }
 </style>

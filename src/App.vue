@@ -16,19 +16,12 @@ export default {
   name: "App",
   components: {
     "app-navbar": navbar,
-    "app-footer":footer,
+    "app-footer": footer,
   },
 };
 </script>
 
 <style scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  height: 100%;
-}
 .title {
   display: block;
   color: rgb(252, 183, 9);
@@ -43,9 +36,14 @@ export default {
     transform: translateY(35%);
   }
 }
+@media screen and (max-width: 346px) and (min-width: 290px) {
+  .title {
+    font-size: 4.5rem;
+  }
+}
 @media screen and (max-width: 280px) {
   .title {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 }
 </style>

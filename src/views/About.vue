@@ -13,18 +13,22 @@
   </div>
 </template>
 <style  scoped>
+.about{
+  min-height: 60%;
+}
+
 .blog {
   border: 4px solid rgb(177, 78, 5);
   border-radius: 7.5px;
   margin-bottom: 30px;
-  max-width: 700px;
-  /* color: rgb(86, 18, 0) !important; */
+  max-width: 700px; 
+  color: rgb(86, 18, 0) ;
   background-color: rgb(255, 255, 204);
   font-size: small;
   text-align: left;
   text-decoration: solid;
   text-transform: none;
-  margin: 10px auto;
+  margin:0px auto;
   padding: 20px;
   padding-bottom: 5px;
 }

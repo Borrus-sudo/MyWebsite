@@ -1,7 +1,7 @@
 <template>
   <footer>
     <ul class="flex-container">
-      <li>&copy; Copyright 2021 BorrisX</li>
+      <li>&copy; Copyright {{ new Date().getFullYear() }} BorrisX</li>
       <li class="break"></li>
       <li>
         <a href="https://github.com/Borrus-sudo" target="_blank">
@@ -31,10 +31,12 @@ export default {
 };
 </script>
 <style scoped>
+
+
 .flex-container {
   display: flex;
   background: rgb(68, 108, 169);
-  position: fixed;
+  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
