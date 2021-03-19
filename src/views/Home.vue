@@ -14,4 +14,8 @@ export default {
 };
 </script>
 <style scoped>
+.home {
+  padding: 0px;
+  margin: 0px;
+}
 </style>

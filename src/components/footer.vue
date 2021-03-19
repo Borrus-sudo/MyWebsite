@@ -1,6 +1,9 @@
 <template>
   <footer>
-    <ul class="flex-container">
+    <ul
+      :style="[$route.name === 'Home' ? staticPos : absolutePos]"
+      class="flex-container"
+    >
       <li>&copy; Copyright {{ new Date().getFullYear() }} BorrisX</li>
       <li class="break"></li>
       <li>
@@ -26,17 +29,21 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      staticPos: {
+        position: "static",
+      },
+      absolutePos: {
+        position: "absolute",
+      },
+    };
   },
 };
 </script>
 <style scoped>
-
-
 .flex-container {
   display: flex;
   background: rgb(68, 108, 169);
-  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
@@ -49,7 +56,7 @@ export default {
   padding: 0px !important;
   justify-content: center;
   flex-wrap: wrap;
-  height: 9% !important;
+  height: auto !important;
 }
 .break {
   height: 0px;

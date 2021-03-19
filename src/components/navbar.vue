@@ -47,6 +47,7 @@ export default {
   text-align: left;
   display: flex;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .left-part:hover {
