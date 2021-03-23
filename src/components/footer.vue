@@ -18,8 +18,18 @@
       <li>
         <a href="https://twitter.com/BorrisX006" target="_blank">
           <img
+            style="margin-right: 10px"
             src="https://www.bencodezen.io//_nuxt/img/twitter.c1cc5ac.svg"
             alt="twitter icon"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="https://discord.gg/mtU74Xv2eQ" target="_blank">
+          <img
+            style="height: 27px; transform: translateY(-1.5%)"
+            src="https://cdn.glitch.com/2bbc9839-083e-4231-9287-0879060cb9ad%2FDiscord-Logo-Black.svg?v=1616518371665"
+            alt="discord icon icon"
           />
         </a>
       </li>
