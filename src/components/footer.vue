@@ -1,7 +1,7 @@
 <template>
-  <footer>
+  <footer id="footer">
     <ul
-      :style="[$route.name === 'Home' ? staticPos : absolutePos]"
+      :style="$route.name === 'Home' ? staticPos : absolutePos"
       class="flex-container"
     >
       <li>&copy; Copyright {{ new Date().getFullYear() }} BorrisX</li>

@@ -1,24 +1,26 @@
 <template>
   <div>
-    <div v-if="loaded">
-      <template v-for="blog in blogs">
-        <section class="blog" :key="blog._id">
-          <router-link
-            style="margin: 0px; padding: 0px"
-            :to="'/post/' + blog._id"
-          >
-            <span class="additionals">⭐{{ blog.star }}</span>
-            <article
-              class="content"
-              v-html="blog.message.split('</h5>')[0] + '(...)'"
-            ><br>
-             Author:Jinmay Jhaveri
-            </article
-          ></router-link>
-        </section>
-      </template>
-    </div>
-    <div v-else>Loading</div>
+    <div v-if="!loaded"><div id="loader" /></div>
+    <transition name="fade-in"
+      ><div v-if="loaded">
+        <template v-for="blog in blogs">
+          <section class="blog animate-bottom" :key="blog._id">
+            <router-link
+              style="margin: 0px; padding: 0px"
+              :to="'/post/' + blog._id"
+            >
+              <span class="additionals">⭐{{ blog.star }}</span>
+              <article
+                class="content"
+                v-html="blog.message.split('</h5>')[0] + '(...)'"
+              >
+                <br />
+              </article>
+            </router-link>
+          </section>
+        </template>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -49,13 +51,14 @@ export default {
 </script>
 
 <style scoped>
+@import url("../../public/spin-animation.css");
 .blog {
   border: 4px solid maroon;
   border-radius: 7.5px;
   margin-bottom: 30px;
   max-width: 650px;
   max-height: 3% !important;
-  background-color: rgb(255,255,204);
+  background-color: rgb(255, 255, 204);
   font-size: small;
   text-align: left;
   text-decoration: solid;
@@ -95,7 +98,7 @@ article {
 }
 @media screen and (max-width: 440px) {
   .additionals {
-    margin-left: 92%;
+    margin-left: 90%;
   }
 }
 @media screen and (max-width: 280px) {

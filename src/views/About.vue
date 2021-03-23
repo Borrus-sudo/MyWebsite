@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about animate-bottom">
     <section class="blog">
       <h2>About me 🔥</h2>
       <p>
@@ -11,7 +11,21 @@
     </section>
   </div>
 </template>
+<script>
+export default {
+  name: "About",
+  created() {
+    console.log("Reached here");
+    const footer = document.getElementById("footer");
+    console.log(footer.style.height);
+  },
+};
+</script>
+
+
 <style  scoped>
+@import url("../../public/bounce-animation.css");
+
 .about {
   min-height: 100%;
 }
@@ -20,7 +34,7 @@
   border: 4px solid rgb(177, 78, 5);
   border-radius: 7.5px;
   margin-bottom: 30px;
-  width: 700px;
+  max-width: 700px;
   color: rgb(86, 18, 0);
   background-color: rgb(255, 255, 204);
   font-size: small;

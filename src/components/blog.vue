@@ -1,7 +1,7 @@
 <template>
   <div>
     {{ callForBlog() }}
-    <section v-if="loaded" class="blog">
+    <section v-if="loaded" class="blog animate-bottom">
       <article v-html="blog.message"></article>
       <span class="creds">
         <button
@@ -19,7 +19,7 @@
         </h5>
       </span>
     </section>
-    <section v-else>Loading</section>
+    <section v-else>{{ $router.push({ name: "Home" }) }}</section>
   </div>
 </template>
 
@@ -58,7 +58,7 @@ export default {
     bus.$on("blog", (data) => {
       console.log(data);
       const blogs = data.filter((elem) => elem._id === this.$route.params.id);
-      
+
       this.blog = blogs[0];
       this.loaded = true;
     });
@@ -72,7 +72,7 @@ export default {
   border-radius: 7.5px;
   margin-bottom: 30px;
   max-width: 700px;
-  background-color: rgb(255,255,204);
+  background-color: rgb(255, 255, 204);
   font-size: larger;
   text-align: left;
   text-decoration: solid;

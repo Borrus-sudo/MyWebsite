@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home animate-bottom">
     <list-blogs />
   </div>
 </template>
@@ -14,6 +14,7 @@ export default {
 };
 </script>
 <style scoped>
+@import url("../../public/bounce-animation.css");
 .home {
   padding: 0px;
   margin: 0px;
