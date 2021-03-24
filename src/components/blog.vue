@@ -36,13 +36,13 @@ export default {
   },
   methods: {
     async addStar(id) {
-      this.blog.stars++;
+      this.blog.star++;
       this.starred.push(id.trim());
       localStorage.setItem("starredPosts", this.starred.toString());
       await fetch(`${this.baseURL}post/addStar/${id.trim()}`);
     },
     async removeStar(id) {
-      this.blog.stars--;
+      if (this.blog != 0) this.blog.star--;
       this.starred.splice(this.starred.indexOf(id), 1);
       localStorage.setItem("starredPosts", this.starred.toString());
       await fetch(`${this.baseURL}post/removeStar/${id.trim()}`);
@@ -56,7 +56,6 @@ export default {
   },
   created() {
     bus.$on("blog", (data) => {
-      console.log(data);
       const blogs = data.filter((elem) => elem._id === this.$route.params.id);
       this.blog = blogs[0];
       this.loaded = true;
