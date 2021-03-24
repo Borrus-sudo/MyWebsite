@@ -5,7 +5,11 @@
       The page you requested was not found.
       <br />
       <span
-        style="cursor: pointer; text-align: center"
+        style="
+          cursor: pointer;
+          text-decoration: underline;
+          color: rgb(12, 240, 255);
+        "
         @click="$router.push({ name: 'Home' })"
       >
         Go back to the home page</span

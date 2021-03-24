@@ -58,7 +58,6 @@ export default {
     bus.$on("blog", (data) => {
       console.log(data);
       const blogs = data.filter((elem) => elem._id === this.$route.params.id);
-
       this.blog = blogs[0];
       this.loaded = true;
     });
