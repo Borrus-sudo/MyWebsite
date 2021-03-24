@@ -7,7 +7,7 @@
         be senior).He is also a game dev enthusiastic and a Potter head. He is
         the founder and CEO of JCorp that primarily focuses on improving
         <abbr title="developer experience">DX</abbr> of Vue developers. 
-        He is a staunch believer in the saying "Don't be Dinesh!"
+        He is a staunch believer in the tagline "Don't be Dinesh!"
       </p>
     </section>
   </div>
