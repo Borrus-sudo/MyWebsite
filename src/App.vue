@@ -31,11 +31,7 @@ export default {
   letter-spacing: 1px;
   z-index: -1;
 }
-@media screen and (max-width: 824px) {
-  .title {
-    transform: translateY(35%);
-  }
-}
+
 @media screen and (max-width: 346px) and (min-width: 290px) {
   .title {
     font-size: 4.5rem;

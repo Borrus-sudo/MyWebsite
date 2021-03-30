@@ -4,7 +4,7 @@
       :style="$route.name === 'Home' ? staticPos : absolutePos"
       class="flex-container"
     >
-      <li>&copy; Copyright {{ new Date().getFullYear() }} BorrisX</li>
+      <li>&copy; Copyright {{ new Date().getFullYear() }} BorrisX </li>
       <li class="break"></li>
       <li>
         <a href="https://github.com/Borrus-sudo" target="_blank">
