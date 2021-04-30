@@ -1,7 +1,7 @@
 <template>
   <footer id="footer">
     <ul
-      :style="$route.name === 'Home' ? staticPos : absolutePos"
+      :style="$route.name === 'Home' ? staticPos : staticPos"
       class="flex-container"
     >
       <li>&copy; Copyright {{ new Date().getFullYear() }} BorrisX </li>
@@ -51,6 +51,10 @@ export default {
 };
 </script>
 <style scoped>
+#footer{
+  min-height: 100%;
+}
+
 .flex-container {
   display: flex;
   background: rgb(68, 108, 169);

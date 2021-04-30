@@ -1,26 +1,24 @@
 <template>
   <div>
     <div v-if="!loaded"><div id="loader" /></div>
-    <transition name="fade-in"
-      ><div v-if="loaded">
-        <template v-for="blog in blogs">
-          <section class="blog animate-bottom" :key="blog._id">
-            <router-link
-              style="margin: 0px; padding: 0px"
-              :to="'/post/' + blog._id"
+    <div v-if="loaded">
+      <template v-for="blog in blogs">
+        <section class="blog animate-bottom" :key="blog._id">
+          <router-link
+            style="margin: 0px; padding: 0px"
+            :to="'/post/' + blog._id"
+          >
+            <span class="additionals">⭐{{ blog.star }}</span>
+            <article
+              class="content"
+              v-html="blog.message.split('</h5>')[0] + '(...)'"
             >
-              <span class="additionals">⭐{{ blog.star }}</span>
-              <article
-                class="content"
-                v-html="blog.message.split('</h5>')[0] + '(...)'"
-              >
-                <br />
-              </article>
-            </router-link>
-          </section>
-        </template>
-      </div>
-    </transition>
+              <br />
+            </article>
+          </router-link>
+        </section>
+      </template>
+    </div>
   </div>
 </template>
 

@@ -3,11 +3,12 @@
     <section class="blog">
       <h2>About me 🔥</h2>
       <p>
-        Jinmay Jhaveri is a 14 year old junior full stack web dev (P.S. soon to
-        be senior).He is also a game dev enthusiastic and a Potter head. He is
-        the founder and CEO of JCorp that primarily focuses on improving
-        <abbr title="developer experience">DX</abbr> of Vue developers. 
-        He is a staunch believer in the tagline "Don't be Dinesh!"
+        Jinmay Jhaveri (a.k.a BorrisX) is a
+        {{ this.currentYear - 2006 }} year old self-taught junior full stack web
+        dev (P.S. soon to be senior).He is also a game dev enthusiastic and a
+        Potter head. He is the founder and CEO of JCorp that primarily focuses
+        on improving <abbr title="developer experience">DX</abbr> of Vue
+        developers. He is a staunch believer in the tagline "Don't be Dinesh!"
       </p>
     </section>
   </div>
@@ -15,7 +16,12 @@
 <script>
 export default {
   name: "About",
+  data() {
+    return { currentYear: 0 };
+  },
   created() {
+    const date = new Date();
+    this.currentYear = date.getFullYear();
     console.log("Reached here");
     const footer = document.getElementById("footer");
     console.log(footer.style.height);
@@ -27,8 +33,8 @@ export default {
 <style  scoped>
 @import url("../../public/bounce-animation.css");
 
-.about {
-  min-height: 100%;
+.about{
+  margin-bottom: 14%;
 }
 
 .blog {
